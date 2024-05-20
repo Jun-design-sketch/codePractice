@@ -1,7 +1,7 @@
 package Factorial;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[]  args) {
         FactorialCalculator factorialCalculator = new FactorialCalculator();
         System.out.println(factorialCalculator.calculateFactorial(3));
         System.out.println(factorialCalculator.calculateFactorial(2));
