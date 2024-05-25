@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-
+        ArrayMagic arrayMagic = new ArrayMagic();
+        int[] array = {-40, -20, 0, 100, 10};
+        arrayMagic.reverseArray(array);
     }
 }
 
@@ -59,5 +61,111 @@ class ArrayMagic {
 //        return -1;
 //    }
 
+    /**
+     * This method checks if the input array is sorted in ascending order.
+     *
+     * @param array the array to check
+     * @return true if the array is sorted, false otherwise
+     */
+    public boolean isSorted(int[] array) {
+        boolean result = false;
+        if(array.length > 1 && array != null){
+            result = true;
+            for (int i = 0; i < array.length-1; i++){
+                if(array[i]+1 == array[i+1] || array[i] == array[i+1]){
+                    continue;
+                }else{
+                    result = false;
+                    break;
+                }
+            }
+        }else{
+            result = true;
+        }
+        return result;
+
+
+//        if(array.length <= 1){
+//            return true;
+//        }
+//        for(int i = 0; i < array.length - 1; i++) {
+//            if(array[i+1] < array[i]) {
+//                return false;
+//            }
+//        }
+//        return true;
+    }
+
+    /**
+     * This method reverses an array.
+     *
+     * @param array the array to reverse
+     * @return a new array with elements in reverse order
+     */
+    public int[] reverseArray(int[] array) {
+        // 配列がNULLなら
+        if(array == null){
+            int result[] = {};
+            return result;
+        }
+        // 配列の数が１つなら
+        if(array.length == 1){
+            // そのまま返却すれば良いので処理は不要
+        }
+
+        // 配列の数が２つ以上なら
+        if(array.length > 1){
+            int halfLine = array.length / 2;
+            for(int i  = 0; i < halfLine; i++) {
+                int head = array[i];
+                int tail = array[array.length-i-1];
+                array[i] = tail;
+                array[array.length-i-1] = head;
+            }
+        }
+        return array;
+
+//        新しい返却用の配列を作る方が元の配列を保持する意味では優れていると感じた
+//        int start = 0;
+//        int end = array.length - 1;
+//        int [] reversedArray = new int[array.length];
+//        while (start < end) {
+//            reversedArray[start] = array[end];
+//            reversedArray[end] = array[start];
+//            start++;
+//            end--;
+//        }
+    }
+
+
+
+
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
